@@ -1,5 +1,19 @@
 <?php
     require('templates/header.php');
+
+    $sql = "SELECT* FROM `books` ORDER BY ID DESC LIMIT 1";
+    $result = mysqli_query($dbc, $sql);
+
+    if ($result && mysqli_affected_rows($dbc) > 0) {
+        $singleBook = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    } elseif ($result && mysqli_affected_rows($dbc) == 0) {
+        die("ERROR 404");
+        // header("Location : ../errors/404");
+    } else {
+        die("ERROR: could not ne able to get the data requested");
+    }
+
+
  ?>
 
  <div class="container">
@@ -17,13 +31,13 @@
                 <div class="card-body d-flex flex-column align-items-start">
                     <strong class="d-inline-block mb-2 text-primary">Books</strong>
                     <h3 class="mb-0">
-                        <a class="text-dark" href="#">Latest Book Title</a>
+                        <a class="text-dark" href="#"><?= $singleBook['book_name']; ?></a>
                     </h3>
                     <div class="mb-1 text-muted">Nov 12</div>
                     <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
                     <a href="./books/single.php">Continue reading</a>
                 </div>
-                <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+                <img class="card-img-right flex-auto d-none d-lg-block" src="./images/uploads/thumbnails/<?= $singleBook['image_name']; ?>" alt="Card image cap">
             </div>
         </div>
         <div class="col-md-6">

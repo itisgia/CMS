@@ -38,3 +38,4 @@ Using the an insert query, create a new section which can be added onto the site
 3. Write the sql query (take the example from phpmyadmin and then work backwards)
 4. Test the query in phpmyadmin before allowing the form to completely finish
 5. Once query is successful and the form submits properly, redirect the form to a page which will be the single page
+# CMS
