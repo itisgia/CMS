@@ -2,6 +2,7 @@
     require '../templates/header.php';
 
     $id = $_GET['id'];
+
     // $sql = "SELECT * FROM `books` WHERE id = 16";
     $sql = "SELECT * FROM `books` WHERE id = $id";
     $result = mysqli_query($dbc, $sql);
@@ -26,7 +27,7 @@
 
      <div class="row mb-2">
          <div class="col">
-             <a class="btn btn-outline-primary" href="./books/update.php">Edit</a>
+             <a class="btn btn-outline-primary" href="./books/update.php?id=<?= $singleBook['id']; ?>">Edit</a>
              <a class="btn btn-outline-danger" href="./books/confirm_delete.php">Delete</a>
          </div>
      </div>
