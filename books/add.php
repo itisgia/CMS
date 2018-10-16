@@ -78,12 +78,23 @@
                 if(! is_dir($thumbDestination)){
                     mkdir("../images/uploads/thumbnails/", 0777, true);
                 }
-                $thumbnailImage->resize(300, null, function($constraint){
+                $thumbnailImage->resize(null, 250, function($constraint){
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
                 $thumbnailImage->save($thumbDestination."/".$newFileName, 100);
+                $mediumImage =$manager->make($fileTmp);
+                $mediumDestination = "../images/uploads/medium/";
 
+                if (! is_dir($mediumDestination)) {
+                    mkdir("../images/uploads/medium/", 0777, true);
+                }
+
+                $mediumImage->resize(300, null, function($constraint){
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+                $mediumImage ->save($mediumDestination."/".$newFileName, 100);
 
                 header("Location: book.php?id=$lastID");
 
