@@ -22,7 +22,8 @@
     <head>
 
         <!-- <base href="http://192.168.33.10/Library-CMS/" target="_blank"> -->
-        <base href= <?= $baseURL; ?>>
+        <base href="<?= $baseURL; ?>">
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -47,7 +48,29 @@
                         <a class="text-light" href="#">
                             <i class="fas fa-search mx-3"></i>
                         </a>
-                        <a class="btn btn-sm btn-outline-light" href="#">Sign up</a>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                          Sign up
+                        </button>
+                        <!-- <a class="btn btn-sm btn-outline-light" href="#">Sign up</a> -->
+                        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Sing Up</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Sign up</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

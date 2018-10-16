@@ -16,3 +16,8 @@
 .blog-header-logo:hover {
     text-decoration: none;
 }
+
+
+.modal h5 {
+    color: black;
+}
